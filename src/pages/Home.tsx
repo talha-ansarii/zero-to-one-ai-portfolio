@@ -10,13 +10,12 @@ const Home = () => {
       </div>
       {/* Left Column */}
       <div className="w-full md:w-1/2 space-y-4 md:space-y-6 md:ml-6 text-center md:text-left mt-10 md:mt-0 px-1">
-        <h1 className="text-xl md:text-2xl poppins-regular lg:text-3xl font-bold leading-tight text-[#334054]">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl poppins-regular font-bold leading-tight text-[#334054]">
           Transform into an AI-first enterprise, with the most{" "}
           <span className=" text-[#421fb8]">
             complete Agentic
-            <br /> AI Platform
+            <br className="hidden sm:block" /> AI Platform
           </span>
-          <br />
         </h1>
         <p className="text-sm md:text-base poppins-regular text-black max-w-prose mx-auto md:mx-0">
           The Age of AI is here, Your Agency is the fastest and least disruptive
@@ -52,7 +51,7 @@ const Home = () => {
           <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full max-w-sm sm:max-w-none sm:w-[30rem] h-auto rounded-xl p-4 sm:p-6 border poppins-regular ">
             <CardItem
               translateZ="50"
-              className="text-xl font-bold text-neutral-600 dark:text-white"
+              className="text-lg sm:text-xl font-bold text-neutral-600 dark:text-white"
             >
               AI Transformations
             </CardItem>
