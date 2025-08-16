@@ -39,12 +39,10 @@ const Navbar = () => {
   ];
 
   return (
-    <div>
-      <div className="flex relative z-[50] mt-[-70px] md:mt-[-35px] justify-center items-end ">
-      <FloatingDock
-        items={links}
-      />
-    </div>
+    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[100] flex justify-center items-end">
+      <div className="pointer-events-auto md:translate-y-1/2">
+        <FloatingDock items={links} />
+      </div>
     </div>
   )
 }

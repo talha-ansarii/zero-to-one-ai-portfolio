@@ -5,6 +5,7 @@ import Contact from "./pages/Contact"
 import Projects from "./pages/Projects"
 import BlueBackgroundWrapper from "./components/BlueBackgroundWrapper"
 import Services from "./pages/Services"
+import Test from "./pages/Test"
 
 function App() {
 
@@ -16,8 +17,9 @@ function App() {
 <Routes>
 <Route path="/" element={<Home/>} />
 <Route path="/contact" element={<Contact/>} />
-<Route path="/Projects" element={<Projects/>} />
+<Route path="/projects" element={<Projects/>} />
 <Route path="/services" element={<Services/>} />
+<Route path="/test" element={<Test/>} />
 <Route path="*" element={<NotFound/>} />
 </Routes>
 </BlueBackgroundWrapper>

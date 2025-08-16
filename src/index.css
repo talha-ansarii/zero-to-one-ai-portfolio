@@ -5,6 +5,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Short-screen rules were removed to avoid CSS validator noise; using component-level class toggles instead. */
+
 
 /* add the code bellow */ 
 @layer utilities {

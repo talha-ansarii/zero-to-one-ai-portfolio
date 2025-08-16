@@ -65,7 +65,7 @@ const FunFact: React.FC = () => {
   }, [displayedText, isDeleting, factIndex, typingSpeed]);
 
   return (
-      <p className="text-[10px] md:text-xs">
+      <p className="text-[10px] md:text-xs truncate">
         {displayedText}
         <span className="border-r-2 border-white animate-pulse ml-1"></span>
       </p>
