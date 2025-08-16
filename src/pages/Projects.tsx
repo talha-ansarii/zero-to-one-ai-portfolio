@@ -250,7 +250,7 @@ const Projects = () => {
   });
 
   return (
-    <div className="w-full h-[calc(100dvh-25px)]  md:h-[calc(100dvh-50px)] overflow-hidden ">
+    <div className="relative z-[100] bg-white w-full h-[calc(100dvh-25px)]  md:h-[calc(100dvh-50px)] overflow-hidden ">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

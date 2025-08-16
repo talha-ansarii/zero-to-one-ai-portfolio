@@ -201,7 +201,7 @@ const MobileDeck = ({ items }: { items: JSX.Element[] }) => {
   const visible = items.slice(index, Math.min(index + 3, items.length));
 
   return (
-    <div className="relative h-[calc(100dvh-25px)] w-[calc(100vw-15px)]  overflow-hidden touch-pan-y select-none">
+    <div className="relative z-[40] h-[calc(100dvh-25px)] w-[calc(100vw-15px)]  overflow-hidden touch-pan-y select-none">
       {visible.map((item, i) => {
         const absoluteIndex = index + i;
         const isTop = i === 0;
@@ -292,42 +292,45 @@ export const Card = ({
     <>
       <AnimatePresence>
         {open && (
-          <div className="fixed inset-0 z-50 h-[100dvh] overflow-auto">
+          <>
+            {" "}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 h-full w-full bg-black/80 backdrop-blur-lg"
-            />
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              ref={containerRef}
-              layoutId={layout ? `card-${card.title}` : undefined}
-              className="relative z-[60] mx-auto my-10 h-fit max-w-5xl rounded-3xl bg-white p-4 font-sans md:p-10 dark:bg-neutral-900"
-            >
-              <button
-                className="sticky top-4 right-0 ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-black dark:bg-white"
-                onClick={handleClose}
+              className="fixed inset-0 z-[100] h-full w-full bg-black/80 backdrop-blur-lg"
+            />  
+            <div className="fixed inset-0 z-[1200] h-[100dvh] overflow-auto">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                ref={containerRef}
+                layoutId={layout ? `card-${card.title}` : undefined}
+                className="relative z-[60] mx-auto mt-[100px] h-fit max-w-5xl rounded-t-3xl bg-white p-4 font-sans md:p-10 dark:bg-neutral-900"
               >
-                <IconX className="h-6 w-6 text-neutral-100 dark:text-neutral-900" />
-              </button>
-              <motion.p
-                layoutId={layout ? `category-${card.title}` : undefined}
-                className="text-base font-medium text-black dark:text-white"
-              >
-                {card.category}
-              </motion.p>
-              <motion.p
-                layoutId={layout ? `title-${card.title}` : undefined}
-                className="mt-4 text-2xl font-semibold text-neutral-700 md:text-5xl dark:text-white"
-              >
-                {card.title}
-              </motion.p>
-              <div className="py-10">{card.content}</div>
-            </motion.div>
-          </div>
+                <button
+                  className="sticky top-4 right-0 ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-black dark:bg-white"
+                  onClick={handleClose}
+                >
+                  <IconX className="h-6 w-6 text-neutral-100 dark:text-neutral-900" />
+                </button>
+                <motion.p
+                  layoutId={layout ? `category-${card.title}` : undefined}
+                  className="text-base font-medium text-black dark:text-white"
+                >
+                  {card.category}
+                </motion.p>
+                <motion.p
+                  layoutId={layout ? `title-${card.title}` : undefined}
+                  className="mt-4 text-2xl font-semibold text-neutral-700 md:text-5xl dark:text-white"
+                >
+                  {card.title}
+                </motion.p>
+                <div className="py-10">{card.content}</div>
+              </motion.div>
+            </div>
+          </>
         )}
       </AnimatePresence>
 
@@ -336,8 +339,8 @@ export const Card = ({
         onClick={handleOpen}
         className="relative z-10 flex w-full md:w-96 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 md:min-h-[calc(100vh-8rem)] min-h-[calc(100vh-8rem)] h-full dark:bg-neutral-900 "
       >
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
-        <div className="relative z-40 p-8">
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
+        <div className="relative z-20 p-8">
           <motion.p
             layoutId={layout ? `category-${card.category}` : undefined}
             className="text-left font-sans text-sm font-medium text-white md:text-base"
@@ -351,13 +354,12 @@ export const Card = ({
             {card.title}
           </motion.p>
         </div>
-        {/* <div className="relative"> */}
-          {/* <div className="h-full z-0 absolute top-0 left-0 w-full rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 "></div> */}
-          <BlurImage
-            src={card.src}
-            alt={card.title}
-            className="absolute inset-0 z-10 object-cover"
-          />
+
+        <BlurImage
+          src={card.src}
+          alt={card.title}
+          className="absolute inset-0 z-10 object-cover"
+        />
         {/* </div> */}
       </motion.button>
     </>

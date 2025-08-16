@@ -24,7 +24,7 @@ const HamburgerMenu = () => {
       {/* Hamburger Button */}
       <motion.button
         onClick={toggleMenu}
-        className="relative z-20 w-10 h-10 rounded-full bg-[#7960cf] hover:bg-[#6a4fc4] text-white backdrop-blur-sm border border-purple-300/30 flex items-center justify-center transition-colors duration-200"
+        className="relative z-50 w-10 h-10 rounded-full bg-[#7960cf] hover:bg-[#6a4fc4] text-white backdrop-blur-sm border border-purple-300/30 flex items-center justify-center transition-colors duration-200"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
@@ -63,7 +63,7 @@ const HamburgerMenu = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-10"
+              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30"
               onClick={() => setIsOpen(false)}
             />
 
@@ -73,7 +73,7 @@ const HamburgerMenu = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -10 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="absolute right-0 top-12 z-20 w-56 bg-white/80 backdrop-blur-md rounded-2xl border border-gray-200/50 shadow-xl overflow-hidden"
+              className="absolute right-0 top-12 z-50 w-56 bg-white/80 backdrop-blur-md rounded-2xl border border-gray-200/50 shadow-xl overflow-hidden"
             >
               <div className="py-2">
                 {/* Contact Us Button */}
