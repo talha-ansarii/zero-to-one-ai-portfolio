@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import PuzzleGame from "./Test";
+import MarbleCup from "./MarbleCup";
 
 
 const Game = () => {
@@ -16,7 +16,20 @@ const Game = () => {
 
       </motion.div>
 
-      <PuzzleGame/>
+      <MarbleCup
+        cupName="Tech Stack"
+        compact
+        marbles={[
+          { id: 1, technology: "React", color: "bg-blue-500" },
+          { id: 2, technology: "TypeScript", color: "bg-blue-600" },
+          { id: 3, technology: "Node", color: "bg-green-600" },
+          { id: 4, technology: "GSAP", color: "bg-green-500" },
+          { id: 5, technology: "NLP", color: "bg-purple-500" },
+          { id: 6, technology: "LLM", color: "bg-purple-600" },
+          { id: 7, technology: "RAG", color: "bg-yellow-500" },
+          { id: 8, technology: "Cloud", color: "bg-red-500" },
+        ]}
+      />
     </div>
   )
 }
