@@ -105,7 +105,7 @@ const HamburgerMenu = () => {
                       stroke={2}
                     />
                   </div>
-                  <span className="text-gray-700 font-medium font-poppins">Projects</span>
+                  <span className="text-gray-700 font-medium font-poppins">Assets</span>
                 </motion.button>
               </div>
             </motion.div>
