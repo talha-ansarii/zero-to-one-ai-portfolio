@@ -57,25 +57,25 @@ const Services = () => {
       </header>
 
       <div className="w-full max-w-7xl mx-auto flex overflow-x-auto overscroll-contain touch-pan-x no-scrollbar snap-x snap-mandatory snap-always gap-0 sm:overflow-visible sm:overscroll-auto sm:snap-none sm:grid sm:grid-cols-2 xl:grid-cols-4 sm:gap-6 md:gap-8">
-        <div className="rounded-3xl p-0 sm:p-4 h-[540px] md:h-[540px] min-w-full basis-full flex-shrink-0 snap-start sm:min-w-0 sm:basis-auto place-content-end ">
+        <div className="rounded-3xl p-0 sm:p-4 h-[560px] md:h-[540px] min-w-full basis-full flex-shrink-0 snap-start sm:min-w-0 sm:basis-auto place-content-end ">
           <div className="h-full">
             <MarbleCup marbles={deepLearning} cupName="Deep Learning" compact fillParent />
           </div>
         </div>
 
-        <div className="rounded-3xl  p-0 sm:p-4 h-[5400px] md:h-[540px] min-w-full basis-full flex-shrink-0 snap-start sm:min-w-0 sm:basis-auto">
+        <div className="rounded-3xl  p-0 sm:p-4 h-[560px] md:h-[540px] min-w-full basis-full flex-shrink-0 snap-start sm:min-w-0 sm:basis-auto">
           <div className="h-full">
             <MarbleCup marbles={neuralNetwork} cupName="Neural Network" compact fillParent />
           </div>
         </div>
 
-        <div className="rounded-3xl p-0 sm:p-4 h-[540px] md:h-[540px] min-w-full basis-full flex-shrink-0 snap-start sm:min-w-0 sm:basis-auto">
+        <div className="rounded-3xl p-0 sm:p-4 h-[560px] md:h-[540px] min-w-full basis-full flex-shrink-0 snap-start sm:min-w-0 sm:basis-auto">
           <div className="h-full">
             <MarbleCup marbles={nlp} cupName="NLP" compact fillParent />
           </div>
         </div>
 
-        <div className="rounded-3xl p-0 sm:p-4 h-[540px] md:h-[540px] min-w-full basis-full flex-shrink-0 snap-start sm:min-w-0 sm:basis-auto">
+        <div className="rounded-3xl p-0 sm:p-4 h-[560px] md:h-[540px] min-w-full basis-full flex-shrink-0 snap-start sm:min-w-0 sm:basis-auto">
           <div className="h-full">
             <MarbleCup marbles={genAI} cupName="Generative AI" compact fillParent />
           </div>
