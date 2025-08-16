@@ -49,36 +49,33 @@ const Services = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-start w-full px-4 mt-6 gap-10 overflow-x-hidden">
-      <header className="text-center space-y-3 max-w-3xl">
+    <div className="flex flex-col justify-around items-center h-[calc(100dvh-25px)] w-full px-4 mt-6 gap-10 overflow-x-hidden overflow-y-auto">
+      <header className="text-center max-w-3xl">
         <h1 className="text-3xl md:text-6xl font-bold tracking-tight poppins-regular text-[#334054] dark:text-white ">
           Services
         </h1>
-        <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 poppins-regular">
-          Explore capabilities across four cups—Deep Learning, Neural Networks, NLP, and Generative AI.
-        </p>
       </header>
 
-      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8">
-        <div className="rounded-3xl p-4 h-[420px] md:h-[520px]">
+      <div className="w-full max-w-7xl mx-auto flex overflow-x-auto overscroll-contain touch-pan-x no-scrollbar snap-x snap-mandatory snap-always gap-0 sm:overflow-visible sm:overscroll-auto sm:snap-none sm:grid sm:grid-cols-2 xl:grid-cols-4 sm:gap-6 md:gap-8">
+        <div className="rounded-3xl p-0 sm:p-4 h-[540px] md:h-[540px] min-w-full basis-full flex-shrink-0 snap-start sm:min-w-0 sm:basis-auto place-content-end ">
           <div className="h-full">
             <MarbleCup marbles={deepLearning} cupName="Deep Learning" compact fillParent />
           </div>
         </div>
 
-        <div className="rounded-3xl  p-4 h-[420px] md:h-[520px]">
+        <div className="rounded-3xl  p-0 sm:p-4 h-[5400px] md:h-[540px] min-w-full basis-full flex-shrink-0 snap-start sm:min-w-0 sm:basis-auto">
           <div className="h-full">
             <MarbleCup marbles={neuralNetwork} cupName="Neural Network" compact fillParent />
           </div>
         </div>
 
-        <div className="rounded-3xl p-4 h-[420px] md:h-[520px]">
+        <div className="rounded-3xl p-0 sm:p-4 h-[540px] md:h-[540px] min-w-full basis-full flex-shrink-0 snap-start sm:min-w-0 sm:basis-auto">
           <div className="h-full">
             <MarbleCup marbles={nlp} cupName="NLP" compact fillParent />
           </div>
         </div>
 
-        <div className="rounded-3xl p-4 h-[420px] md:h-[520px]">
+        <div className="rounded-3xl p-0 sm:p-4 h-[540px] md:h-[540px] min-w-full basis-full flex-shrink-0 snap-start sm:min-w-0 sm:basis-auto">
           <div className="h-full">
             <MarbleCup marbles={genAI} cupName="Generative AI" compact fillParent />
           </div>

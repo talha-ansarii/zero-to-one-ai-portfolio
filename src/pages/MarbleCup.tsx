@@ -122,7 +122,7 @@ const MarbleCup: React.FC<MarbleCupProps> = ({ marbles, cupName, compact, fillPa
   const containerH = isCompact ? 'h-72' : 'h-96'
   const cupW = isCompact ? 'w-40' : 'w-48'
   const cupH = isCompact ? 'h-56' : 'h-64'
-  const marbleSize = isCompact ? 'w-8 h-8' : 'w-10 h-10'
+  const marbleHeight = isCompact ? 'h-8' : 'h-10'
   const rimTop = isCompact ? '-top-2 h-5' : '-top-3 h-6'
   const rimInnerTop = isCompact ? '-top-1 h-3 left-1 right-1' : '-top-2 h-4 left-2 right-2'
   const handleOffset = isCompact ? 'right-[-20px] top-10 w-7 h-16' : 'right-[-25px] top-12 w-8 h-20'
@@ -140,15 +140,15 @@ const MarbleCup: React.FC<MarbleCupProps> = ({ marbles, cupName, compact, fillPa
   
       
       {/* Main container with extra height for marble animation */}
-  <div className={`relative ${fillParent ? 'w-full h-full' : `${containerW} ${containerH}`} flex items-end justify-center`}>
+  <div className={`relative ${fillParent ? 'w-full h-full' : `${containerW} ${containerH}`} flex items-end justify-center z-50`}>
         
         {/* Marbles - positioned absolutely to allow movement outside cup */}
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute z-50 inset-0 pointer-events-none">
           {marbles.map((marble) => (
             <div
               key={marble.id}
               id={`marble-${marble.id}`}
-              className={`absolute ${marbleSize} rounded-full ${marble.color} opacity-0 flex items-center justify-center text-white text-[10px] md:text-xs font-bold shadow-2xl border-2 border-white/30 backdrop-blur-sm`}
+              className={`absolute z-50 ${marbleHeight} px-3 md:px-4 rounded-xl ${marble.color} opacity-0 flex items-center justify-center text-white text-[10px] md:text-xs font-bold shadow-2xl border-2 border-white/30 backdrop-blur-sm whitespace-nowrap font-poppins`}
               style={{
                 left: '50%',
                 bottom: `${marbleBottom}px`, // Start from inside the cup
@@ -162,7 +162,7 @@ const MarbleCup: React.FC<MarbleCupProps> = ({ marbles, cupName, compact, fillPa
               }}
             >
               <span className="font-semibold">
-                {marble.technology.slice(0, 2).toUpperCase()}
+                {marble.technology}
               </span>
             </div>
           ))}
