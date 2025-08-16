@@ -224,7 +224,7 @@ const Contact = () => {
 
                 <Button
                   type="submit"
-                  className={`w-full bg-[#7960cf] hover:bg-[#3818a0] text-white font-semibold ${
+                  className={`w-full bg-[#7960cf] hover:bg-[#7960cf]/80 text-white font-semibold ${
                     isShort ? "h-10" : "h-12"
                   } rounded-xl transition-all duration-200 poppins-semibold flex items-center justify-center space-x-2`}
                   disabled={isSubmitting}

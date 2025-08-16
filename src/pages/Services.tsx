@@ -1,85 +1,150 @@
-import MarbleCup from "./MarbleCup";
+import { Tabs } from "../components/ui/tabs";
+import { cn } from "../lib/utils";
 
-// Removed previous tabbed ServiceBlock UI in favor of interactive cups
+// Individual service content blocks kept small & composable
+const ServiceBlock = ({
+  title,
+  tagline,
+  points,
+  accent,
+}: {
+  title: string;
+  tagline: string;
+  points: string[];
+  accent?: string;
+}) => {
+  return (
+    <div
+      className={cn(
+        "relative w-full mx-auto p-6 md:p-10 rounded-3xl border backdrop-blur-xl",
+        "bg-white/70 dark:bg-zinc-900/60 border-white/40 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.08)]"
+      )}
+    >
+      <div className="absolute inset-0 -z-10 rounded-3xl overflow-hidden">
+        <div
+          className={cn(
+            "absolute inset-0 opacity-60 bg-gradient-to-br",
+            accent || "from-[#421fb8]/30 via-fuchsia-400/20 to-transparent"
+          )}
+        />
+        <div className="absolute inset-0 backdrop-[140px]" />
+      </div>
+      <h2 className="text-2xl md:text-3xl font-bold poppins-regular tracking-tight text-[#421fb8] dark:text-violet-300">
+        {title}
+      </h2>
+      <p className="mt-2 text-sm md:text-base text-gray-700 dark:text-gray-300 max-w-prose poppins-regular">
+        {tagline}
+      </p>
+      <ul className="mt-6 grid gap-3 md:gap-4 text-sm md:text-[15px] text-gray-800 dark:text-gray-200 poppins-regular list-none">
+        {points.map((p) => (
+          <li
+            key={p}
+            className="group flex items-start gap-3 rounded-xl px-4 py-3 bg-white/60 dark:bg-zinc-800/40 border border-white/50 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm"
+          >
+            <span className="mt-1 text-[#421fb8] dark:text-violet-300 group-hover:scale-110 transition-transform">
+              {/* decorative icon */}
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 2v20" />
+                <path d="M2 12h20" />
+              </svg>
+            </span>
+            <span className="leading-relaxed">{p}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 const Services = () => {
-  // Marble data derived from the provided image columns
-  const deepLearning = [
-    { id: 1, technology: "Forecasting", color: "bg-blue-500" },
-    { id: 2, technology: "Tabular Data", color: "bg-blue-500" },
-    { id: 3, technology: "Images", color: "bg-blue-500" },
-    { id: 4, technology: "Audio", color: "bg-blue-500" },
-    { id: 5, technology: "Text", color: "bg-blue-500" },
-    { id: 6, technology: "Sensor/IoT Data", color: "bg-blue-500" },
-    { id: 7, technology: "Graph Data", color: "bg-blue-500" },
-    { id: 8, technology: "Video", color: "bg-blue-500" },
-  ];
-
-  const neuralNetwork = [
-    { id: 21, technology: "Sequencing", color: "bg-yellow-500" },
-    { id: 22, technology: "Classification", color: "bg-yellow-500" },
-    { id: 23, technology: "Recognition", color: "bg-yellow-500" },
-    { id: 24, technology: "Transcription", color: "bg-yellow-500" },
-    { id: 25, technology: "Categorization", color: "bg-yellow-500" },
-    { id: 26, technology: "Monitoring", color: "bg-yellow-500" },
-    { id: 27, technology: "Relationships", color: "bg-yellow-500" },
-    { id: 28, technology: "Detection", color: "bg-yellow-500" },
-  ];
-
-  const nlp = [
-    { id: 41, technology: "Extraction", color: "bg-green-500" },
-    { id: 42, technology: "Modeling", color: "bg-green-500" },
-    { id: 43, technology: "Vision", color: "bg-green-500" },
-    { id: 44, technology: "Processing", color: "bg-green-500" },
-    { id: 45, technology: "Understanding", color: "bg-green-500" },
-    { id: 46, technology: "Patterning", color: "bg-green-500" },
-    { id: 47, technology: "Networks", color: "bg-green-500" },
-    { id: 48, technology: "Tracking", color: "bg-green-500" },
-  ];
-
-  const genAI = [
-    { id: 61, technology: "Prediction", color: "bg-purple-500" },
-    { id: 62, technology: "Linking", color: "bg-purple-500" },
-    { id: 63, technology: "OCR", color: "bg-purple-500" },
-    { id: 64, technology: "Speech-to-text", color: "bg-purple-500" },
-    { id: 65, technology: "Sentiment", color: "bg-purple-500" },
-    { id: 66, technology: "Interpretation", color: "bg-purple-500" },
-    { id: 67, technology: "Knowledge", color: "bg-purple-500" },
-    { id: 68, technology: "Captioning", color: "bg-purple-500" },
+  const tabs = [
+    {
+      title: "Artificial Intelligence",
+      value: "ai",
+      content: (
+        <ServiceBlock
+          title="AI / ML / GenAI Enablement"
+          tagline="Designing and shipping intelligent capabilities that create measurable business leverage while keeping safety & governance front and center."
+          points={[
+            "Strategy: AI maturity assessment, roadmap & KPI design",
+            "Custom & fine-tuned LLM (RAG, agents, guardrails, eval harnesses)",
+            "ML Pipelines: feature store, experiment tracking, CI/CD for models",
+            "Edge & realtime inference optimizations (quantization / distillation)",
+            "Responsible AI: bias + drift monitoring, red-teaming, governance",
+            "Automation: workflow orchestration, intelligent copilots & chatbots",
+          ]}
+        />
+      ),
+    },
+    {
+      title: "Reporting & Analysis",
+      value: "analytics",
+      content: (
+        <ServiceBlock
+          title="Reporting & Advanced Analytics"
+          tagline="Turning raw data exhaust into crisp operational & executive intelligence with fast iteration loops."
+          points={[
+            "Modern data stack architecture & warehouse / lakehouse modeling",
+            "Dashboard & semantic layer design (self-serve metrics)",
+            "Data quality / lineage observability & cost optimization",
+            "Causal & cohort analysis, experimentation frameworks",
+            "Forecasting, anomaly detection & real-time alerting",
+            "Embedded analytics & narrative (NL to insights) reporting",
+          ]}
+          accent="from-indigo-400/30 via-sky-300/20 to-transparent"
+        />
+      ),
+    },
+    {
+      title: "Product Management",
+      value: "product",
+      content: (
+        <ServiceBlock
+          title="Product Management & Delivery"
+          tagline="Zero to one and one to n execution: crisp discovery, ruthless prioritization, and outcome-focused delivery."
+          points={[
+            "Discovery: problem framing, user research, JTBD synthesis",
+            "Roadmapping & portfolio alignment with measurable OKRs",
+            "Spec excellence: PRDs, user stories, acceptance criteria",
+            "Release strategy: beta programs, phased rollouts, adoption playbooks",
+            "Product analytics instrumentation & experiment design",
+            "Cross-functional rituals & stakeholder communication frameworks",
+          ]}
+          accent="from-purple-500/30 via-pink-400/20 to-transparent"
+        />
+      ),
+    },
   ];
 
   return (
-    <div className="flex flex-col justify-around items-center h-[calc(100dvh-25px)] w-full px-4 mt-6 gap-10 overflow-x-hidden overflow-y-auto">
-      <header className="text-center max-w-3xl">
+    <div className="flex flex-col items-center justify-start min-h-[calc(100dvh-4rem)] w-full px-4 mt-6 gap-10 overflow-x-hidden">
+      <header className="text-center space-y-3 max-w-3xl">
         <h1 className="text-3xl md:text-6xl font-bold tracking-tight poppins-regular text-[#334054] dark:text-white ">
           Services
         </h1>
+        <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 poppins-regular">
+          Partnering across the lifecycle—from strategy and discovery to scaled
+          AI-powered products—while keeping velocity, reliability and ethics
+          aligned.
+        </p>
       </header>
-
-      <div className="w-full max-w-7xl mx-auto flex overflow-x-auto overscroll-contain touch-pan-x no-scrollbar snap-x snap-mandatory snap-always gap-0 sm:overflow-visible sm:overscroll-auto sm:snap-none sm:grid sm:grid-cols-2 xl:grid-cols-4 sm:gap-6 md:gap-8">
-        <div className="rounded-3xl p-0 sm:p-4 h-[560px] md:h-[540px] min-w-full basis-full flex-shrink-0 snap-start sm:min-w-0 sm:basis-auto place-content-end ">
-          <div className="h-full">
-            <MarbleCup marbles={deepLearning} cupName="Deep Learning" compact fillParent />
-          </div>
-        </div>
-
-        <div className="rounded-3xl  p-0 sm:p-4 h-[560px] md:h-[540px] min-w-full basis-full flex-shrink-0 snap-start sm:min-w-0 sm:basis-auto">
-          <div className="h-full">
-            <MarbleCup marbles={neuralNetwork} cupName="Neural Network" compact fillParent />
-          </div>
-        </div>
-
-        <div className="rounded-3xl p-0 sm:p-4 h-[560px] md:h-[540px] min-w-full basis-full flex-shrink-0 snap-start sm:min-w-0 sm:basis-auto">
-          <div className="h-full">
-            <MarbleCup marbles={nlp} cupName="NLP" compact fillParent />
-          </div>
-        </div>
-
-        <div className="rounded-3xl p-0 sm:p-4 h-[560px] md:h-[540px] min-w-full basis-full flex-shrink-0 snap-start sm:min-w-0 sm:basis-auto">
-          <div className="h-full">
-            <MarbleCup marbles={genAI} cupName="Generative AI" compact fillParent />
-          </div>
-        </div>
+      <div className="w-[90%] md:w-full mx-auto flex flex-col items-center">
+        <Tabs
+          tabs={tabs}
+          containerClassName="gap-2 justify-center"
+          tabClassName="text-xs md:text-sm font-medium transition-colors hover:text-[#421fb8]"
+          activeTabClassName="bg-white/70 dark:bg-zinc-800 shadow-md border border-white/40 dark:border-white/10"
+          contentClassName="w-full mx-auto"
+        />
       </div>
     </div>
   );

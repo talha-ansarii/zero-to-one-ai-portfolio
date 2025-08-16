@@ -28,7 +28,17 @@ const facts = [
     "There are more than 1.8 billion websites today!",
     "Typing 'Google in 1998' gives you a retro Google look.",
     "The original PlayStation was a Nintendo project.",
-    "A single Google search uses about 0.0003 kWh of energy."
+    "A single Google search uses about 0.0003 kWh of energy.",
+    "AI refers to machines performing tasks that typically require human intelligence.",
+    "Machine learning (ML) is a subset of AI focused on learning patterns from data.",
+    "Deep learning uses multi-layer neural networks to model complex problems.",
+    "AI powers recommendations, chatbots, fraud detection, and voice assistants.",
+    "Generative AI creates new text, images, audio, and code from patterns.",
+    "More data can improve AI, but it can also amplify bias if not handled carefully.",
+    "AI ethics focuses on fairness, accountability, transparency, and privacy.",
+    "AI is embedded across healthcare, finance, retail, and self-driving systems.",
+    "Most AI doesn’t 'understand'—it predicts based on learned statistical patterns.",
+    "Human-in-the-loop pairs automation with human oversight for safety and quality."
   ];
   
   

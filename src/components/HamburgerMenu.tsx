@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { IconMenu2, IconX, IconMail, IconFolder } from '@tabler/icons-react';
+import {
+  IconMenu2,
+  IconX,
+  IconMail,
+  IconFolder,
+  IconPackages,
+} from "@tabler/icons-react";
 import { useNavigate } from 'react-router-dom';
 
 const HamburgerMenu = () => {
@@ -16,6 +22,10 @@ const HamburgerMenu = () => {
 
   const handleProjectsClick = () => {
     navigate('/projects');
+    setIsOpen(false);
+  };
+  const handleServicesClick = () => {
+    navigate('/services');
     setIsOpen(false);
   };
 
@@ -76,22 +86,6 @@ const HamburgerMenu = () => {
               className="absolute right-0 top-12 z-50 w-56 bg-white/80 backdrop-blur-md rounded-2xl border border-gray-200/50 shadow-xl overflow-hidden"
             >
               <div className="py-2">
-                {/* Contact Us Button */}
-                <motion.button
-                  onClick={handleContactClick}
-                  className="w-full px-4 py-3 flex items-center gap-3 text-left hover:bg-gray-100/50 transition-colors duration-150"
-                  whileHover={{ x: 4 }}
-                  transition={{ duration: 0.1 }}
-                >
-                  <div className="w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center">
-                    <IconMail className="w-4 h-4 text-blue-600" stroke={2} />
-                  </div>
-                  <span className="text-gray-700 font-medium font-poppins">Contact Us</span>
-                </motion.button>
-
-                {/* Divider */}
-                <div className="mx-4 my-1 h-px bg-gray-200/50" />
-
                 {/* Projects/Assets Button */}
                 <motion.button
                   onClick={handleProjectsClick}
@@ -105,7 +99,45 @@ const HamburgerMenu = () => {
                       stroke={2}
                     />
                   </div>
-                  <span className="text-gray-700 font-medium font-poppins">Assets</span>
+                  <span className="text-gray-700 font-medium font-poppins">
+                    Assets
+                  </span>
+                </motion.button>
+                {/* Divider */}
+                <div className="mx-4 my-1 h-px bg-gray-200/50" />
+
+                {/* Projects/Assets Button */}
+                <motion.button
+                  onClick={handleServicesClick}
+                  className="w-full px-4 py-3 flex items-center gap-3 text-left hover:bg-gray-100/50 transition-colors duration-150"
+                  whileHover={{ x: 4 }}
+                  transition={{ duration: 0.1 }}
+                >
+                  <div className="w-8 h-8 rounded-full bg-purple-500/10 flex items-center justify-center">
+                    <IconPackages
+                      className="w-4 h-4 text-purple-600"
+                      stroke={2}
+                    />
+                  </div>
+                  <span className="text-gray-700 font-medium font-poppins">
+                    Services
+                  </span>
+                </motion.button>
+                {/* Divider */}
+                <div className="mx-4 my-1 h-px bg-gray-200/50" />
+                {/* Contact Us Button */}
+                <motion.button
+                  onClick={handleContactClick}
+                  className="w-full px-4 py-3 flex items-center gap-3 text-left hover:bg-gray-100/50 transition-colors duration-150"
+                  whileHover={{ x: 4 }}
+                  transition={{ duration: 0.1 }}
+                >
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center">
+                    <IconMail className="w-4 h-4 text-blue-600" stroke={2} />
+                  </div>
+                  <span className="text-gray-700 font-medium font-poppins">
+                    Contact Us
+                  </span>
                 </motion.button>
               </div>
             </motion.div>
